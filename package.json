@@ -1,0 +1,19 @@
+{
+  "name": "koajs-coachroachdb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "firebase-init": "firebase init",
+    "firebase-login": "firebase login",
+    "firebase-logout": "firebase logout"
+  },
+  "dependencies": {
+    "firebase-functions": "^4.7.0",
+    "firebase-tools": "12.4.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
