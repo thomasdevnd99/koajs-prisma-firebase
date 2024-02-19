@@ -11,7 +11,11 @@
     "production": "babel src --out-dir lib --copy-files --include-dotfiles",
     "development": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles",
     "watch": "babel src --out-dir lib --copy-files --source-maps --include-dotfiles --watch --verbose",
-    "eslint-fix": "./node_modules/.bin/eslint --fix ."
+    "eslint-fix": "./node_modules/.bin/eslint --fix .",
+    "prisma:gen": "prisma generate ./prisma"
+  },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
   },
   "engines": {
     "node": "20"
@@ -21,7 +25,10 @@
     "koa": "^2.8.1",
     "koa-router": "^7.4.0",
     "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.3.1"
+    "firebase-functions": "^4.3.1",
+    "@prisma/client": "5.8.1",
+    "prisma": "5.8.1",
+    "uuid": "9.0.1"
   },
   "devDependencies": {
     "eslint": "^8.15.0",

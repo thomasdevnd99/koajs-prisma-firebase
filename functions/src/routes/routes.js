@@ -1,9 +1,21 @@
 import Router from "koa-router";
+import * as accountRepository from "../repository/accountRepository";
 
 const router = new Router();
 
-router.get('/hello', async (ctx) => {
-    return ctx.body = {message: "Hello world"}
+const json = (param) => {
+    return JSON.parse(
+        JSON.stringify(
+            param,
+            (key, value) => (typeof value === "bigint" ? value.toString() : value) // return everything else unchanged
+        )
+    );
+};
+
+router.get('/accounts', async (ctx) => {
+    const accounts = await accountRepository.list();
+
+    return ctx.body = {data: json(accounts)}
 });
 
 export default router;

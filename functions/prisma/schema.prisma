@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = "postgresql://tuan:FmapDxbvs3rIAIz_8Jo3gw@frosty-colt-8610.8nk.gcp-asia-southeast1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
+}
+
+model Account {
+  id          String    @id(map: "primary") @db.Uuid
+  customer_id String?   @db.Uuid
+  balance     BigInt?
+  Customer    Customer? @relation(fields: [customer_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_customer_id_ref_Customer")
+}
+
+model Customer {
+  id      String    @id(map: "primary") @db.Uuid
+  Account Account[]
+}
